@@ -30,6 +30,12 @@ var n = 14.01;
 var num1 = Math.abs(10 - m);
 var num2 = Math.abs(10 - n);
 var result =  Math.min(num1, num2)
+
+if (result === num1) {
+    console.log(n);
+} else {
+    console.log(m);
+}
 console.log(result);
 
 
@@ -49,19 +55,18 @@ var cX = 0;
 var cY = 4;
 var cZ = 0;
 
-var a = Math.sqrt(Math.pow(aX - bX, 2) + Math.pow(aY - bY, 2) + Math.pow(aZ - bZ, 2));
-var b = Math.sqrt(Math.pow(cX - bX, 2) + Math.pow(cY - bY, 2) + Math.pow(cZ - bZ, 2));
-var c = Math.sqrt(Math.pow(cX - aX, 2) + Math.pow(cY - aY, 2) + Math.pow(cZ - aZ, 2));
+var a = (Math.pow(aX - bX, 2) + Math.pow(aY - bY, 2) + Math.pow(aZ - bZ, 2));
+var b = (Math.pow(cX - bX, 2) + Math.pow(cY - bY, 2) + Math.pow(cZ - bZ, 2));
+var c = (Math.pow(cX - aX, 2) + Math.pow(cY - aY, 2) + Math.pow(cZ - aZ, 2));
 
-var num1 = Math.pow(a, 2) + Math.pow(b, 2);
-var d = Math.pow(c, 2);
-
-console.log("Длинна строны a = " + a);
-console.log("Длинна строны b = " + b);
-console.log("Длинна строны c = " + c);
-
-if (d === num1) {
+if (c === a + b || b === a + c || a === b + c) {
     console.log("Треугольник Прямоугольный");
-} else {
-    console.log("Треугольник Не прямоугольный");
 }
+else{
+console.log("Треугольник не прямоугольный");
+
+}
+
+console.log("Длинна строны a = " + Math.sqrt(a));
+console.log("Длинна строны b = " + Math.sqrt(b));
+console.log("Длинна строны c = " + Math.sqrt(c));
