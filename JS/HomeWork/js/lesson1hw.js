@@ -74,7 +74,8 @@ console.log("Длинна строны c = " + Math.sqrt(c));
 
 console.log("Домашнее задание №2")
 
-console.log("Задача №1. Дан номер месяца (1 — январь, 2 — февраль, ...). Вывести название соответствующего времени года (зима, весна и т.д.).");
+console.log(`Задача №1. Дан номер месяца (1 — январь, 2 — февраль, ...).
+Вывести название соответствующего времени года (зима, весна и т.д.).`);
 var mountNumber = 1;
 if(mountNumber == 12 || mountNumber == 1 || mountNumber == 2){
     console.log("Зима");
@@ -179,7 +180,7 @@ if(year % 400 === 0){
 }else if (year % 4 === 0) {
     console.log("Високосный");
 }
-console.log(`Задача №5. Задать количество тарелок и количество моющего средства.
+console.log(`Задача №6. Задать количество тарелок и количество моющего средства.
     Моющее средство расходуется из расчета 0,5 на одну тарелку.
     В цикле выводить сколько моющего средства осталось после мытья каждой тарелки
     В конце вывести, сколько тарелок осталось, когда моющее средство закончилось или наоборот.`);
@@ -199,3 +200,130 @@ for(let i = 0; i < plate; i++){
 if(detergent > 0){
     console.log("Тарелки были все вымыты, осталось моющего средства - " + (detergent))
 }
+
+console.log("Домашнее задание №3");
+
+console.log(`Задача №1. Заданы два массива
+A = [ 12, 4, 3, 10, 1, 20 ]
+B = [-3, -7, -100, -33]
+необходимо их объединить в один массив C добавив массив B в конец(в начало) A.`);
+
+let A = [ 12, 4, 3, 10, 1, 20 ];
+let B = [-3, -7, -100, -33];
+
+let C = A.concat(B);
+console.log(C);
+C = B.concat(A);
+console.log(C);
+
+
+console.log(`Задача №2. Одномерным массивом задана доска 3 на 3
+var area = [ null, null, null, null, null, null, null, null, null ]
+Необходимо сформировать и вывести (document.write) игровое поле состоящее из квадратов для крестиков-ноликов в HTML.
+При появлении в массиве 0-ля рисовать нолик , 1-цы крестик
+Пример: [ 1, null, 0, null, 1, null, null, null, null ] на поле 2-а крестика, и 1-н нолик.`);
+
+function changeSymbol(iSyblol){
+    if(String(iSyblol) == "1"){
+        return "X";
+    }else if (String(iSyblol) == "0"){
+        return "0";
+    }else {
+        return "";
+    }
+}
+var area = [ null, 1, null, 0, null, 1, null, 0, null ];
+let fieldGame =  `<table border="1">
+                    <tbody>
+                        <tr>
+                            <td align="center" width="50" height="50">${changeSymbol(area[0])}</td>
+                            <td align="center" width="50" height="50">${changeSymbol(area[1])}</td>
+                            <td align="center" width="50" height="50">${changeSymbol(area[2])}</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="50" height="50">${changeSymbol(area[3])}</td>
+                            <td align="center" width="50" height="50">${changeSymbol(area[4])}</td>
+                            <td align="center" width="50" height="50">${changeSymbol(area[5])}</td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="50" height="50">${changeSymbol(area[6])}</td>
+                            <td align="center" width="50" height="50">${changeSymbol(area[7])}</td>
+                            <td align="center" width="50" height="50">${changeSymbol(area[8])}</td>
+                        </tr>
+                    </tbody>
+                </table>`;
+document.write(fieldGame)
+
+console.log(`Задача №3. Задан массив - [12,4,3,10,1,20].
+Удалить из него наименьшее и наибольшее значение.`);
+
+let mass = [12,4,3,10,1,20];
+let min  = Math.min.apply(null,mass);
+let max = Math.max.apply(null,mass);
+
+mass.splice(mass.indexOf(min),1);
+mass.splice(mass.indexOf(max),1);
+console.log(mass);
+
+console.log(`Задача №4. В городе N проезд в трамвае осуществляется по бумажным отрывным билетам.
+Каждую неделю трамвайное депо заказывает в местной типографии рулон билетов
+с номерами от 000001 до 999999.
+«Счастливым» считается билетик у которого сумма первых трёх цифр номера равна
+сумме последних трёх цифр, как, например, в билетах с номерами 003102 или 567576.
+Трамвайное депо решило подарить сувенир обладателю каждого счастливого билета и
+теперь раздумывает, как много сувениров потребуется.
+С помощью программы подсчитайте сколько счастливых билетов в одном рулоне.`);
+
+function lucky(number){
+    arrNumber = String(number).split('');
+    if(Number(arrNumber[0])+Number(arrNumber[1])+Number(arrNumber[2]) ==
+        Number(arrNumber[3])+Number(arrNumber[4])+Number(arrNumber[5])){
+            return true;
+        }else {return false;}
+}
+//Полный код цикла
+let matches = 0;
+for (var i = 1; i < 1000000; i++) {
+    let iLenght = String(i).split('').length;
+    switch (iLenght) {
+        case 1:
+            if(lucky("00000" + i) == true) {matches = matches + 1;}
+        break;
+        case 2:
+            if(lucky("0000" + i) == true) {matches = matches + 1;}
+        break;
+        case 3:
+            if(lucky("000" + i) == true) {matches = matches + 1;}
+        break;
+        case 4:
+            if(lucky("00" + i) == true) {matches = matches + 1;}
+        break;
+        case 5:
+            if(lucky("0" + i) == true) {matches = matches + 1;}
+        break;
+        case 6:
+            if(lucky(i) == true) {matches = matches + 1;}
+        break;
+        default:
+
+    }
+}
+console.log(matches);
+//Можно оптимизировать
+matches = 0;
+for (var i = 1000; i < 1000000; i++) {
+    let iLenght = String(i).split('').length;
+    switch (iLenght) {
+        case 4:
+            if(lucky("00" + i) == true) {matches = matches + 1;}
+        break;
+        case 5:
+            if(lucky("0" + i) == true) {matches = matches + 1;}
+        break;
+        case 6:
+            if(lucky(i) == true) {matches = matches + 1;}
+        break;
+        default:
+    }
+}
+console.log(matches);
