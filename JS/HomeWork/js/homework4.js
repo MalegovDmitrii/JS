@@ -34,7 +34,7 @@ console.log(`Задача №4.Нечёткий поиск:
 регулярного выражения найти в строке-словаре введённое пользователем слово (не смотря на одну ошибка в слове)
 и вывести исправленное слово пользователю, например: "Среда".`);
 
-var weekday = ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"];
+/*var weekday = ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"];
 var day = prompt("Введите день недели");
 var correctDay = "";
 var number = 0;
@@ -46,6 +46,22 @@ for (var i = 0; i < weekday.length; i++) {
         j < arraySybolDayBase.length ?
         (arraySybolDayUser[j] == arraySybolDayBase[j] ?
                 iCounter++ : iCounter): iCounter;
+    }
+    number < iCounter ? (correctDay = weekday[i], number = iCounter) : correctDay;
+}
+console.log(correctDay);*/
+
+var weekday = ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"];
+var day = prompt("Введите день недели");
+var correctDay = "";
+var number = 0;
+for (var i = 0; i < weekday.length; i++) {
+    var arraySybolDayUser = day.split('');
+    var iCounter = 0;
+    for (var j = 0; j < arraySybolDayUser.length; j++) {
+        var reg = new RegExp('' + arraySybolDayUser[j] + '', 'i');
+        //weekday[i].match(reg) > 0 ? iCounter++ : iCounter;
+        reg.test(weekday[i]) ? iCounter++ : iCounter;
     }
     number < iCounter ? (correctDay = weekday[i], number = iCounter) : correctDay;
 }
