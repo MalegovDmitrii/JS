@@ -313,17 +313,8 @@ console.log(matches);
 matches = 0;
 for (var i = 1000; i < 1000000; i++) {
     let iLenght = String(i).split('').length;
-    switch (iLenght) {
-        case 4:
-            if(lucky("00" + i) == true) {matches = matches + 1;}
-        break;
-        case 5:
-            if(lucky("0" + i) == true) {matches = matches + 1;}
-        break;
-        case 6:
-            if(lucky(i) == true) {matches = matches + 1;}
-        break;
-        default:
-    }
+    iLenght == 4 && lucky("00" + i) == true ||
+        iLenght == 5 && lucky("0" + i) == true ||
+            iLenght == 6 && lucky(i) == true ? matches++ : matches;
 }
 console.log(matches);
