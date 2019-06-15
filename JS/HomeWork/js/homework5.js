@@ -66,10 +66,10 @@ console.log(`Написать генератор случайных “слов�
 - буквы выбираются случайно.`);
 
 function getRandomNum(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function getRandomSymbol() {
-  return String.fromCharCode(getRandomNum(1040, 1071));
+    return String.fromCharCode(getRandomNum(1040, 1071));
 }
 //Проверяет на гласную или согласную
 function vowelVerif (randomSymbol) {
