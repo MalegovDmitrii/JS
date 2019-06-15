@@ -57,6 +57,7 @@ function changeColor(that)
         var color = arr[0].style.background;
         arr[0].style.background = arr[1].style.background;
         arr[1].style.background  = color;
+        deleteElement();
     }
 
 
@@ -74,14 +75,16 @@ function deleteElement()
                 }else {
                     if(num == 3){
                         var random = getRandomNum(1, 5);
-                      document.getElementById('cell' + line).style.background =
-                                                                             getRandomNum(1, 5) == 1 ? 'red' :
-                                                                            (getRandomNum(1, 5) == 2 ? 'blue' :
-                                                                            (getRandomNum(1, 5) == 3 ? 'green' :
-                                                                            (getRandomNum(1, 5) == 4 ? 'lightblue' :
-                                                                            (getRandomNum(1, 5) == 5 ? 'orange' : "" ))));
+                for (var i = 0; i < 3; i++) {
+                    document.getElementById('cell' + line-i).style.background =
+                                                                           getRandomNum(1, 5) == 1 ? 'red' :
+                                                                          (getRandomNum(1, 5) == 2 ? 'blue' :
+                                                                          (getRandomNum(1, 5) == 3 ? 'green' :
+                                                                          (getRandomNum(1, 5) == 4 ? 'lightblue' :
+                                                                          (getRandomNum(1, 5) == 5 ? 'orange' : "" ))));
+                                                                                            
                     }
-                     
+
                 }
             }
 
