@@ -44,20 +44,46 @@ if(arr.length == 2){
 
 
 }*/
-function changeColor()
+function changeColor(that)
 {
     if(arr.length <2){
-        arr.push (this);
+        arr.push (that);
     }else{
         arr.splice(0,2);
-        arr.push (this);
+        arr.push (that);
     }
 
     if(arr.length == 2){
         var color = arr[0].style.background;
         arr[0].style.background = arr[1].style.background;
         arr[1].style.background  = color;
+    }
+
+
 }
+function deleteElement()
+{
+    var num = 0;
+    for (var line = 2; line < 26; line++) {
+
+            var element = document.getElementById('cell' + line);
+
+                if(document.getElementById('cell' + line) == document.getElementById('cell' + line+1))
+                {
+                    num++
+                }else {
+                    if(num == 3){
+                        var random = getRandomNum(1, 5);
+                      document.getElementById('cell' + line).style.background =
+                                                                             getRandomNum(1, 5) == 1 ? 'red' :
+                                                                            (getRandomNum(1, 5) == 2 ? 'blue' :
+                                                                            (getRandomNum(1, 5) == 3 ? 'green' :
+                                                                            (getRandomNum(1, 5) == 4 ? 'lightblue' :
+                                                                            (getRandomNum(1, 5) == 5 ? 'orange' : "" ))));
+                    }
+                     
+                }
+            }
 
 
 }
