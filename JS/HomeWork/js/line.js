@@ -66,27 +66,21 @@ function deleteElement()
 {
     var num = 0;
     for (var line = 2; line < 26; line++) {
-
-            var element = document.getElementById('cell' + line);
-
-                if(document.getElementById('cell' + line) == document.getElementById('cell' + line+1))
-                {
-                    num++
-                }else {
-                    if(num == 3){
-                        var random = getRandomNum(1, 5);
-                for (var i = 0; i < 3; i++) {
+        var element = document.getElementById('cell' + line);
+        if(document.getElementById('cell' + line) == document.getElementById('cell' + line - 1))
+        {
+            num++
+        } else {
+            if(num >= 3){
+                    for (var i = 0; i < num; i++) {
                     document.getElementById('cell' + line-i).style.background =
-                                                                           getRandomNum(1, 5) == 1 ? 'red' :
-                                                                          (getRandomNum(1, 5) == 2 ? 'blue' :
-                                                                          (getRandomNum(1, 5) == 3 ? 'green' :
-                                                                          (getRandomNum(1, 5) == 4 ? 'lightblue' :
-                                                                          (getRandomNum(1, 5) == 5 ? 'orange' : "" ))));
-                                                                                            
+                               getRandomNum(1, 5) == 1 ? 'red' :
+                              (getRandomNum(1, 5) == 2 ? 'blue' :
+                              (getRandomNum(1, 5) == 3 ? 'green' :
+                              (getRandomNum(1, 5) == 4 ? 'lightblue' :
+                              (getRandomNum(1, 5) == 5 ? 'orange' : "" ))));
                     }
-
-                }
-            }
-
-
+            } else{num = 0;}
+        }
+    }
 }
