@@ -20,30 +20,25 @@ function colorCells(){
     }
 }
 var arr = [];
-function lineSearch()
+
+function changeColor()
 {
     var arrayVerif = [];
     for (var line = 1; line < 26; line++) {
-        /*if(document.getElementById('cells' + line).style.background ==
-            document.getElementById('cells' + line + 1).style.background){
-                 arrayVerif.push(line)
 
-            }*/
-            var element = document.getElementById('cells' + line);
+            var element = document.getElementById('cell' + line);
             if(element.onclick){
                 if(arr.length <2){
-                    arr.push = element
+                    arr.push (element);
                 }else{
                     arr.splice(0,2);
-                    arr.push = element
+                    arr.push (element);
                 }
-
             }
-
     }
     var color = arr[0].style.background;
 
-    array[0].style.background = array[i+1].style.background;
-    array[1].style.background  = color;
-    
+    arr[0].style.background = array[i+1].style.background;
+    arr[1].style.background  = color;
+
 }
