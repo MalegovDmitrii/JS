@@ -21,7 +21,7 @@ function colorCells(){
 }
 var arr = [];
 
-function changeColor()
+/*function changeColor()
 {
     var arrayVerif = [];
     for (var line = 1; line < 26; line++) {
@@ -36,9 +36,28 @@ function changeColor()
                 }
             }
     }
+if(arr.length == 2){
     var color = arr[0].style.background;
-
-    arr[0].style.background = array[i+1].style.background;
+    arr[0].style.background = arr[1].style.background;
     arr[1].style.background  = color;
+}
+
+
+}*/
+function changeColor()
+{
+    if(arr.length <2){
+        arr.push (this);
+    }else{
+        arr.splice(0,2);
+        arr.push (this);
+    }
+
+    if(arr.length == 2){
+        var color = arr[0].style.background;
+        arr[0].style.background = arr[1].style.background;
+        arr[1].style.background  = color;
+}
+
 
 }
